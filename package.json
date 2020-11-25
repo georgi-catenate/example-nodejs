@@ -1,0 +1,51 @@
+{
+    "name": "example-nodejs",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./build/index.js",
+    "scripts": {
+        "start": "node -r dotenv/config build/index.js",
+        "start:watch": "ts-node-dev -r dotenv/config src/index.ts",
+        "check:lint": "eslint . --ext .ts",
+        "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js --config src/ormconfig.ts",
+        "migration:generate": "npm run typeorm -- migration:generate -d ./src/db/migrations --name",
+        "migration:run": "npm run typeorm -- migration:run",
+        "migration:revert": "npm run typeorm -- migration:revert"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/georgi-catenate/example-nodejs.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/georgi-catenate/example-nodejs/issues"
+    },
+    "homepage": "https://github.com/georgi-catenate/example-nodejs#readme",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "pg": "^8.5.1",
+        "reflect-metadata": "^0.1.13",
+        "typeorm": "^0.2.29"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.8",
+        "@types/express": "^4.17.9",
+        "@types/node": "^14.14.9",
+        "@typescript-eslint/eslint-plugin": "^4.8.2",
+        "@typescript-eslint/parser": "^4.8.2",
+        "eslint": "^7.2.0",
+        "eslint-config-airbnb": "^18.2.1",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-react": "^7.21.5",
+        "eslint-plugin-react-hooks": "^4.0.0",
+        "ts-node": "^9.0.0",
+        "ts-node-dev": "^1.0.0",
+        "tsc": "^1.20150623.0",
+        "typescript": "^4.1.2"
+    }
+}
