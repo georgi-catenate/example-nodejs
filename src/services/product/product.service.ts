@@ -7,15 +7,9 @@ import { IProductService } from './product.interface';
 export const createProduct = (
     repository: ProductRepository,
 ) => async (productToCreate: Product): Promise<Product> => {
-    let createdProduct;
-    try {
-        createdProduct = await repository.save(productToCreate);
-        console.log(`Product created with id - ${createdProduct.id}`);
-        return createdProduct;
-    } catch (err) {
-        console.log(err);
-        throw new Error(err);
-    }
+    const createdProduct = await repository.save(productToCreate);
+    console.log(`Product created with id - ${createdProduct.id}`);
+    return createdProduct;
 };
 
 export const updateProduct = (
