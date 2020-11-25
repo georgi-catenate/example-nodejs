@@ -10,7 +10,6 @@ import { initializeServices } from './services';
 
 const app = express();
 
-// eslint-disable-next-line no-unused-vars
 export const startServer = async (configurations: IServerConfiguration) => {
     await getDbConnection(ORMConfig);
     const repositories = initiateDbRepositories();
