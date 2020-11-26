@@ -1,6 +1,4 @@
-import { IProcessEnv, IServerConfiguration } from './interfaces/constants/server-configuration.interface';
-
-export const getConfiguration = (environment: IProcessEnv): IServerConfiguration => {
+const getConfiguration = (environment) => {
     if (!environment.SERVER_PORT) {
         throw new Error('environment variable SERVER_PORT is required');
     }
@@ -34,3 +32,5 @@ export const getConfiguration = (environment: IProcessEnv): IServerConfiguration
         DB_HOST: environment.DB_HOST,
     };
 };
+
+module.exports = getConfiguration;

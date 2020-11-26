@@ -1,1 +1,2 @@
-/src/db/migrations/*.ts
+src/db/migrations
+src/db/seeds
