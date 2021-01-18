@@ -1,32 +1,26 @@
 module.exports = (sequelize, DataTypes) => {
-    const Product = sequelize.define('product', {
+    const User = sequelize.define('user', {
         id: {
             allowNull: false,
             type: DataTypes.UUID,
             primaryKey: true,
             defaultValue: DataTypes.UUIDV4,
         },
-        name: {
+        email: {
             type: DataTypes.STRING,
+            unique: true,
             allowNull: false,
         },
-        description: {
+        password: {
             type: DataTypes.TEXT,
             allowNull: true,
         },
-        createdAt: {
-            type: DataTypes.DATE,
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-        },
-    });
+    }, { timestamps: true });
 
-    Product.associate = (models) => {
-        Product.belongsToMany(models.user, {
+    User.associate = (models) => {
+        User.belongsToMany(models.product, {
             through: 'user_product',
         });
     };
-
-    return Product;
+    return User;
 };
