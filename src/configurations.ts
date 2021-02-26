@@ -17,20 +17,14 @@ export const getConfiguration = (environment: IProcessEnv): IServerConfiguration
         throw new Error('environment variable DB_NAME is required');
     }
 
-    if (!environment.DB_PORT) {
-        throw new Error('environment variable DB_PORT is required');
-    }
-
-    if (!environment.DB_HOST) {
-        throw new Error('environment variable DB_HOST is required');
+    if (!environment.DB_CONNECTION_STRING) {
+        throw new Error('environment variable DB_CONNECTION_STRING is required');
     }
 
     return {
         SERVER_PORT: parseInt(environment.SERVER_PORT, 10),
         DB_USERNAME: environment.DB_USERNAME,
-        DB_PASSWORD: environment.DB_PASSWORD,
         DB_NAME: environment.DB_NAME,
-        DB_PORT: environment.DB_PORT,
-        DB_HOST: environment.DB_HOST,
+        DB_CONNECTION_STRING: environment.DB_CONNECTION_STRING,
     };
 };

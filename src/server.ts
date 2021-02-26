@@ -3,7 +3,6 @@ import cors from 'cors';
 
 import { IServerConfiguration } from './interfaces/constants/server-configuration.interface';
 import { getRootRouter } from './endpoints';
-import ORMConfig from './ormconfig';
 import { getDbConnection } from './db/connection';
 import { initiateDbRepositories } from './repositories';
 import { initializeServices } from './services';
@@ -11,7 +10,8 @@ import { initializeServices } from './services';
 const app = express();
 
 export const startServer = async (configurations: IServerConfiguration) => {
-    await getDbConnection(ORMConfig);
+    await getDbConnection(configurations);
+
     const repositories = initiateDbRepositories();
     const services = initializeServices(configurations, repositories);
 

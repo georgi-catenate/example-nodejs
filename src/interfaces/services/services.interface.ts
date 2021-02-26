@@ -1,5 +1,5 @@
-import { IProductService } from '../../services/product/product.interface';
+import { ISurveyService } from '../../services/survey/survey.interface';
 
 export interface IEntityServices {
-    productService: IProductService;
+    surveyService: ISurveyService;
 }

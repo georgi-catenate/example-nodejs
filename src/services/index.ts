@@ -1,11 +1,15 @@
 import { IServerConfiguration } from '../interfaces/constants/server-configuration.interface';
 import { IRepositories } from '../interfaces/repositories/repositories.interface';
 import { IEntityServices } from '../interfaces/services/services.interface';
-import { instantiateProductService } from './product/product.service';
+import { instantiateSurveyService } from './survey/survey.service';
 
 export const initializeServices = (
     configurations: IServerConfiguration,
     repositories: IRepositories,
-): IEntityServices => ({
-    productService: instantiateProductService(configurations, repositories.products),
-});
+): IEntityServices => {
+    const services = {} as IEntityServices;
+
+    services.surveyService = instantiateSurveyService(configurations, repositories.survey);
+
+    return services;
+};

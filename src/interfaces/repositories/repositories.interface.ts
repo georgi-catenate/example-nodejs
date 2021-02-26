@@ -1,5 +1,5 @@
-import { ProductRepository } from '../../repositories/product.repository';
+import { SurveyRepository } from '../../db/models/survey';
 
 export interface IRepositories {
-    products: ProductRepository;
+    survey: SurveyRepository;
 }
